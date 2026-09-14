@@ -85,11 +85,11 @@ const dateField = form.querySelector('input[name="date"]');
 const timeField = form.querySelector('select[name="time"]');
 const guestsField = form.querySelector('select[name="guests"]');
 
-if (!nameField.value.trim()) {
-  formMessage.textContent = "Please enter your name.";
-  nameField.focus();
-  return;
-}
+// if (!nameField.value.trim()) {
+//   formMessage.textContent = "Please enter your name.";
+//   nameField.focus();
+//   return;
+// }
 
 if (!/^[A-Za-z ]+$/.test(nameField.value.trim())) {
   formMessage.textContent = "Name should contain only letters and spaces.";
@@ -131,3 +131,24 @@ window.addEventListener("scroll", () => {
 backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
 renderMenu();
+document.querySelector('.reservation-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const msg = document.getElementById('success-message');
+  msg.style.display = 'block';
+  
+  this.reset(); // Form inputs ko khali kar dega
+
+  // 4 sec baad auto hide karne ke liye
+  setTimeout(() => {
+    msg.style.display = 'none';
+  }, 4000);
+});
+document.querySelector('.reservation-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  alert("🎉 Table Reserved Successfully!");
+
+  // Form clear kar do
+  this.reset();
+});
