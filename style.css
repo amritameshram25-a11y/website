@@ -325,17 +325,15 @@ h2 { margin: 0; font: 600 clamp(40px, 4.2vw, 60px)/1.08 var(--serif); letter-spa
   gap: 15px !important;
   width: 100% !important;
 }
-
-/* Sabhi Labels ko ek barabar width dene ke liye */
-.reservation-form .form-row label {
-  width: 130px !important; /* Isse labels ki width fixed ho jayegi */
-  min-width: 130px !important;
-  text-align: left !important;
-  margin-bottom: 0 !important;
+.reservation-form .form-row {
+  display: flex;
+  align-items: center;
 }
 
-/* Sabhi Input boxes ko same width dene ke liye */
+.reservation-form .form-row label {
+  min-width: 150px; /* Label ko fix space dega */
+}
+
 .reservation-form .form-row input {
-  flex: 1 !important; /* Input box bachi hui poori space cover karega */
-  width: 100% !important;
+  width: 100%; /* Input box baaki bachi poori space le lega */
 }
