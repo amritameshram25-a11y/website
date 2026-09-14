@@ -94,12 +94,30 @@
       </div>
     </section>
 
-    <section class="gallery-strip" id="gallery" aria-label="Savoré gallery">
-      <div class="gallery-item gallery-wide"><img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1200&q=85" alt="A beautifully plated restaurant dish"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=85" alt="Freshly baked artisan pizza"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=85" alt="Sliced grilled steak with herbs"></div>
-      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85" alt="Glazed dessert topped with berries"></div>
-    </section>
+    <section class="gallery-section section-pad" id="gallery" aria-label="Savoré gallery">
+  <div class="container">
+    <div class="section-heading centered reveal">
+      <p class="eyebrow">Visual Journey</p>
+      <h2>Our <em>Gallery</em></h2>
+      <p class="section-intro">A glimpse into our culinary creations, vibrant atmosphere, and memorable dining experiences.</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item gallery-wide">
+        <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1200&q=85" alt="A beautifully plated restaurant dish">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=85" alt="Freshly baked artisan pizza">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=85" alt="Sliced grilled steak with herbs">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85" alt="Glazed dessert topped with berries">
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="reservation section-pad" id="reservation" aria-labelledby="reservation-title">
       <div class="container reservation-grid">
@@ -111,7 +129,15 @@
         </div>
         <form class="reservation-form reveal" id="reservation-form" novalidate>
           <div class="form-row">
-            <label>Full Name<input type="text" name="name" placeholder="Your name" autocomplete="name" required></label>
+          <input
+         type="text"
+        name="name"
+        placeholder="Your name"
+        autocomplete="name"
+         required
+         pattern="[A-Za-z ]+"
+         title="Name should contain only letters and spaces"
+>
             <label>Email Address<input type="email" name="email" placeholder="you@example.com" autocomplete="email" required></label>
           </div>
           <div class="form-row">

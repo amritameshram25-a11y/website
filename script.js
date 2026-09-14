@@ -4,7 +4,7 @@ const menuItems = [
   { category: "main-course", name: "Creamy Alfredo Pasta", description: "Rich and creamy pasta with Parmesan and herbs", price: "₹450", image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=800&q=85", alt: "Creamy pasta topped with herbs" },
   { category: "main-course", name: "Grilled Salmon", description: "Perfectly grilled salmon with seasonal vegetables", price: "₹620", image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=85", alt: "Grilled salmon with vegetables and lemon" },
   { category: "main-course", name: "Herb-Crusted Chicken", description: "Tender chicken, rosemary jus and roasted roots", price: "₹540", image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=85", alt: "Herb-crusted roasted chicken with vegetables" },
-  { category: "desserts", name: "Chocolate Lava Cake", description: "Warm chocolate cake with a molten center", price: "₹380", image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476b?auto=format&fit=crop&w=800&q=85", alt: "Chocolate lava cake dusted with sugar" },
+  { category: "desserts", name: "Chocolate Lava Cake", description: "Warm chocolate cake with a molten center", price: "₹380", image: "https://cookingfromheart.com/wp-content/uploads/2017/07/Eggless-Choco-Lava-Cake-5.jpg", alt: "Chocolate lava cake dusted with sugar" },
   { category: "desserts", name: "Saffron Panna Cotta", description: "Silky vanilla cream with saffron and pistachio", price: "₹340", image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=85", alt: "Panna cotta with berries and pistachios" },
   { category: "beverages", name: "Rosemary Citrus Fizz", description: "Fresh citrus, rosemary and sparkling water", price: "₹240", image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=85", alt: "Citrus drink with rosemary and ice" }
 ];
@@ -79,8 +79,34 @@ sections.forEach((section) => observer.observe(section));
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const fields = [...form.querySelectorAll("input, select")];
-  const invalidField = fields.find((field) => !field.value.trim() || (field.type === "email" && !field.validity.valid));
-  if (invalidField) {
+const nameField = form.querySelector('input[name="name"]');
+const emailField = form.querySelector('input[name="email"]');
+const dateField = form.querySelector('input[name="date"]');
+const timeField = form.querySelector('select[name="time"]');
+const guestsField = form.querySelector('select[name="guests"]');
+
+if (!nameField.value.trim()) {
+  formMessage.textContent = "Please enter your name.";
+  nameField.focus();
+  return;
+}
+
+if (!/^[A-Za-z ]+$/.test(nameField.value.trim())) {
+  formMessage.textContent = "Name should contain only letters and spaces.";
+  nameField.focus();
+  return;
+}
+
+if (!emailField.validity.valid) {
+  formMessage.textContent = "Please enter a valid email address.";
+  emailField.focus();
+  return;
+}
+
+if (!dateField.value || !timeField.value || !guestsField.value) {
+  formMessage.textContent = "Please complete all reservation details.";
+  return;
+}  if (invalidField) {
     formMessage.textContent = invalidField.type === "email" ? "Please enter a valid email address." : "Please complete all reservation details.";
     invalidField.focus();
     return;
