@@ -27,7 +27,7 @@ button { cursor: pointer; }
 .navbar { min-height: 96px; display: flex; align-items: center; position: relative; }
 .brand { display: inline-flex; align-items: center; gap: 11px; }
 .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font: 600 22px/1 var(--serif); font-style: italic; }
-.brand-copy { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-copy { display: flex;  line-height: 1.1; }
 .brand-copy strong { font: 600 22px/1 var(--serif); letter-spacing: .02em; }
 .brand-copy small { margin-top: 4px; font-size: 8px; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; opacity: .75; }
 .desktop-nav { display: flex; gap: 34px; margin: 0 auto; }
@@ -63,7 +63,7 @@ button { cursor: pointer; }
 
 h2 { margin: 0; font: 600 clamp(40px, 4.2vw, 60px)/1.08 var(--serif); letter-spacing: -.025em; }
 .story { background: var(--cream); }
-.story-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 100px; }
+.story-grid { display: grid; align-items: center; gap: 100px; }
 .section-intro { max-width: 475px; margin: 25px 0 34px; color: var(--muted); }
 .feature-list { border-top: 1px solid var(--line); max-width: 490px; }
 .feature-item { display: flex; align-items: center; gap: 22px; padding: 16px 0; border-bottom: 1px solid var(--line); }
@@ -386,4 +386,327 @@ h2 { margin: 0; font: 600 clamp(40px, 4.2vw, 60px)/1.08 var(--serif); letter-spa
 
 .reservation-form .datetime-row .form-row {
   flex: 1 !important;
+}
+.main-container {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .hero-section {
+    flex-direction: row; /* Stack items horizontally */
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 1.5rem; /* Text scale down */
+  }
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Landscape mode me 2 columns me convert karein */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 Column layout */
+    gap: 10px;
+  }
+  
+  .submit-btn {
+    grid-column: span 2; /* Button poori width lega */
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  input, select, textarea {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  
+  .form-group {
+    margin-bottom: 8px;
+  }
+}
+.form-wrapper {
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* Mobile Landscape Mode ke liye */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  /* Overall section ka padding kam karein */
+  .reservation-section-pad, 
+  div.container.reservation {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+  }
+
+  /* Dark card-box ki height aur inner padding kam karein */
+  .reservation-card, 
+  form {
+    padding: 15px !important;
+    margin: 0 auto;
+  }
+
+  /* Inputs aur Labels ke beech ka gap chhota karein */
+  .form-group, 
+  label {
+    margin-bottom: 4px !important;
+    font-size: 11px !important; /* Label text size small */
+  }
+
+  /* Input boxes ki height aur padding adjust karein */
+  input, select, .form-control {
+    height: 36px !important;
+    padding: 4px 10px !important;
+    font-size: 13px !important;
+  }
+
+  /* Reserve Button ki height compact karein */
+  .submit-btn, 
+  button[type="submit"] {
+    height: 40px !important;
+    margin-top: 10px !important;
+    font-size: 13px !important;
+  }
+
+  /* Top Heading aur Text ko compact karein */
+  h2, p {
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+  }
+}
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  /* Form container ko grid banayein */
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Large items aur button full width rahenge */
+  .full-width-input, 
+  button[type="submit"] {
+    grid-column: span 2;
+  }
+}
+/* ==========================================
+   LANDSCAPE MOBILE RESPONSIVE FIX
+   ========================================== */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  
+  /* Section aur Container padding short karein */
+  .reservation-section-pad, 
+  div.container.reservation {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+  }
+
+  /* Form outer wrapper height aur overflow fix */
+  .reservation-card, 
+  form {
+    padding: 15px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+  }
+
+  /* Heading aur Paragraph space kam karein */
+  form h2, .reservation-section-pad p {
+    margin-bottom: 6px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Labels spacing aur font size */
+  form label, .form-group label {
+    margin-top: 4px !important;
+    margin-bottom: 2px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  /* Inputs, Select dropdowns, Date Pickers height fix */
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="date"],
+  form select,
+  .form-control {
+    height: 34px !important;
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Reserve Button height aur spacing */
+  form button[type="submit"],
+  .submit-btn {
+    height: 38px !important;
+    margin-top: 10px !important;
+    font-size: 12px !important;
+    padding: 0 15px !important;
+  }
+}
+/* Clean Landscape CSS Fix */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  form {
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    padding: 10px !important;
+  }
+
+  form label {
+    margin-top: 4px !important;
+    margin-bottom: 2px !important;
+    font-size: 11px !important;
+  }
+
+  form input, 
+  form select {
+    height: 32px !important;
+    padding: 2px 8px !important;
+    font-size: 12px !important;
+  }
+
+  form button[type="submit"] {
+    height: 36px !important;
+    margin-top: 10px !important;
+    font-size: 12px !important;
+  }
+}
+/* DESKTOP LAYOUT FOR LANDSCAPE MOBILE */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+
+  /* 1. Main Container: Text Left me, Form Right me */
+  .reservation-grid, 
+  div.container.reservation {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    padding: 10px 20px !important;
+  }
+
+  /* Left Side Text Box */
+  .reservation-text-side {
+    width: 40% !important;
+  }
+  
+  .reservation-text-side h2 {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  .reservation-text-side p {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* 2. Right Side Form Card */
+  .reservation-card, form {
+    width: 58% !important;
+    padding: 15px !important;
+  }
+
+  /* 3. Label Left & Input Right (Horizontal Alignment) */
+  .form-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 8px !important;
+  }
+
+  .form-group label {
+    width: 35% !important;
+    margin-bottom: 0 !important;
+    font-size: 10px !important;
+    text-align: left !important;
+  }
+
+  .form-group input, 
+  .form-group select {
+    width: 62% !important;
+    height: 32px !important;
+    padding: 2px 8px !important;
+    font-size: 11px !important;
+  }
+
+  /* 4. Date aur Time Row (Side-by-Side) */
+  .date-time-row {
+    display: flex !important;
+    gap: 10px !important;
+  }
+
+  /* Button Full Width */
+  form button[type="submit"] {
+    width: 100% !important;
+    height: 34px !important;
+    margin-top: 8px !important;
+    font-size: 11px !important;
+  }
+}
+/* FORCE DESKTOP LAYOUT IN LANDSCAPE MOBILE */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+
+  /* Main section grid ko side-by-side flex banayein */
+  section.reservation-section-pad .container,
+  div.reservation-grid,
+  .story-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 15px !important;
+  }
+
+  /* Left Side Text */
+  div.reservation-grid > div:first-child,
+  .reservation-text-side {
+    width: 45% !important;
+  }
+
+  /* Right Side Form Container */
+  div.reservation-grid > div:last-child,
+  .reservation-card {
+    width: 52% !important;
+    padding: 12px !important;
+  }
+
+  /* Form Field Groups: Label Left, Input Right */
+  .reservation-card form .form-group,
+  form > div {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 6px !important;
+  }
+
+  .reservation-card form label {
+    width: 35% !important;
+    margin-bottom: 0 !important;
+    font-size: 10px !important;
+    text-align: left !important;
+  }
+
+  .reservation-card form input,
+  .reservation-card form select {
+    width: 62% !important;
+    height: 30px !important;
+    padding: 2px 6px !important;
+    font-size: 11px !important;
+  }
+
+  /* Submit Button */
+  .reservation-card form button[type="submit"] {
+    width: 100% !important;
+    height: 34px !important;
+    margin-top: 6px !important;
+    font-size: 11px !important;
+  }
 }
