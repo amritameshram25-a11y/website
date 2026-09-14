@@ -353,3 +353,37 @@ h2 { margin: 0; font: 600 clamp(40px, 4.2vw, 60px)/1.08 var(--serif); letter-spa
     width: 100%;
   }
 }
+/* Exact Layout & Alignment as Screenshot */
+.reservation-form .form-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 20px !important;
+  width: 100% !important;
+}
+
+.reservation-form .form-row label {
+  min-width: 160px !important;
+  max-width: 160px !important;
+  margin-bottom: 0 !important;
+  font-size: 13px !important;
+  letter-spacing: 1px !important;
+}
+
+.reservation-form .form-row input,
+.reservation-form .form-row select {
+  flex: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Date & Time Side-by-Side Grid */
+.reservation-form .datetime-row {
+  display: flex !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+
+.reservation-form .datetime-row .form-row {
+  flex: 1 !important;
+}
