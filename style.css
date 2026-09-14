@@ -337,3 +337,19 @@ h2 { margin: 0; font: 600 clamp(40px, 4.2vw, 60px)/1.08 var(--serif); letter-spa
 .reservation-form .form-row input {
   width: 100%; /* Input box baaki bachi poori space le lega */
 }
+@media (max-width: 768px) {
+  .reservation-form .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reservation-form .form-row label {
+    min-width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .reservation-form .form-row input,
+  .reservation-form .form-row select {
+    width: 100%;
+  }
+}
